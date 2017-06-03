@@ -3,10 +3,9 @@ function setup() {
   //constraits : one occurnces of triangle, ellipse, rect
   createCanvas(500, 500);
 
-
   background(255);
   fill(0);
-  stroke(255);
+
   push()
   translate(width*0.4, height*0.3)
   for(i = 0; i < 3; i++)
@@ -20,8 +19,8 @@ function setup() {
   push()
   translate(width*0.5, height*0.40)
   stroke(255);
-  strokeWeight(9);
-  triangle(-120, 0, 120, 0, 0, 200);
+  strokeWeight(6);
+  triangle(-120, 0, 120, 0, 0, 250);
   pop()
 
 }
