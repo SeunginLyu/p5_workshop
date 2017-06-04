@@ -1,17 +1,20 @@
 var NUM = 8
 var ROW = 5
 var COL = 5
-var COLOR_NUMS = 6
+var COLOR_NUMS = 10
+
 
 function fillHsluv(h, s, l) {
   var rgb = hsluv.hsluvToRgb([h, s, l]);
   fill(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
 
+
 function strokeHsluv(h, s, l) {
   var rgb = hsluv.hsluvToRgb([h, s, l]);
   stroke(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
+
 
 function setup() {
 
@@ -28,7 +31,6 @@ function setup() {
       translate(width*0.15, 0)
       if (row == rand_index[0] && col == rand_index[1]) {
          make_ice_cream(col, row, (0, 0, 0))
-         console.log("yay")
       }
       else {
         rand_color = random(colors_list)
@@ -38,24 +40,31 @@ function setup() {
     pop()
   }
 }
+
+
 function generate_colors(color_nums){
-  colorMode(HSL)
   var colors  = []
   for (var i = 0; i < color_nums; i++) {
   // put a color into the colors array
-    var hue = i*20
-    var sat = random(50, 100)
-    var lig = random(30, 70)
-    colors.push(color(hue, sat, lig))
+    var rand_color = []
+    var hue = 10
+    var sat = random(30, 100)
+    var lig = random(30, 100)
+    rand_color.push(hue)
+    rand_color.push(sat)
+    rand_color.push(lig)
+    colors.push(rand_color)
   }
+
   return colors
 }
+
 
 function make_ice_cream(row, col, color){
   var points = []
   for(i = 0; i < 3; i++)
   {
-    fill(color);
+    fillHsluv(color[0], color[1], color[2]);
     stroke(255);
     strokeWeight(3);
     var x = 0 + (width/25)*i
