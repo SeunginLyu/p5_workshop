@@ -19,8 +19,8 @@ function setup() {
 function draw(){
 
   var grid = new EasyGrid({
-    columns: round(random(1, 10)),
-    rows: round(random(1, 10)),
+    columns: round(random(4, 10)),
+    rows: round(random(4, 10)),
     gutter: 0,
     width: width,
     height: height
@@ -36,7 +36,7 @@ function draw(){
 
     texts = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
     fillHsluv(255, 255, 255)
-    textSize(module.width/3.5)
+    textSize(sqrt(module.width*module.height)/3)
     text(random(texts), module.x+module.width/2.5, module.y+module.height/1.8)
   }
 
